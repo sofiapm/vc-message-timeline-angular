@@ -1,6 +1,6 @@
 
 angular
-  .module('AppModule', ['ngRoute', 'ngCookies'])
+  .module('AppModule', ['ui.bootstrap', 'ngRoute', 'ngCookies'])
   // intercepts http requests
   // if request url has `api` string, then changes base url to server url
   .factory('routeInterceptor', function () {
@@ -47,4 +47,7 @@ angular
                 $location.path('/timeline');
             }
         });
+    }])
+    .controller('AppController', ['$scope', 'AlertService', function ($scope, AlertService){
+        $scope.closeAlert = AlertService.closeAlertIdx
     }])

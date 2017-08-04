@@ -12,17 +12,18 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
 
   <link rel="stylesheet" href="/assets/styles/app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
+<body ng-controller="AppController">
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-    <div>
-        <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{ alert.msg }}</alert>
+    <div class="col-sm-12">
+        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-danger'" close="closeAlert($alert)">{{alert.msg}}</div>
     </div>
     <div class="container">
         <div class="col-sm-8 col-sm-offset-2">
@@ -36,7 +37,17 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <!-- <script src="bower_components/ui-bootstrap/index.js"></script> -->
+  <!-- Dependencies for bootstrap -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+  <!-- Dependencies for ui-bootstrap -->
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+  <!-- Internal dependencies -->
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script src="services/AlertService.js"></script>
