@@ -4,9 +4,10 @@ angular
     templateUrl: '/components/comments/postCommentComponent.html',
     controller: ['CommentService', 'LocalStorageService', function (CommentService, LocalStorageService) {
       const ctrl = this
-      ctrl.finalComment = {}
+      ctrl.postingComment = false
 
       ctrl.postComment = () => {
+        ctrl.postingComment = true
         const comment = {
           author: LocalStorageService.GetUserId(),
           message: ctrl.message.id,
@@ -15,14 +16,18 @@ angular
         CommentService.Create(comment)
           .then((response) => {
             if (response.success) {
-              ctrl.finalComment = response.data
+              response.data.author = LocalStorageService.GetUser()
+              ctrl.comments = ctrl.comments ? ctrl.comments.concat(response.data) : [response.data]
               ctrl.comment.text = ''
             }
+            ctrl.postingComment = false
           })
       };
     }],
     bindings: {
       message: '=',
-      comment: '<'
+      comment: '<',
+      comments: '=',
+      postingComment: '<'
     }
   })

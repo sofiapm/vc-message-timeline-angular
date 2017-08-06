@@ -37,6 +37,9 @@ angular
         MessageService.Create(message)
           .then((response) => {
             if (response.success) {
+              response.data.author = LocalStorageService.GetUser()
+              $scope.messages = [response.data].concat($scope.messages)
+
               $scope.message = ''
             } else {
               // adds error message on alert array

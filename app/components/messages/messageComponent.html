@@ -5,14 +5,18 @@
         <h4 class="media-heading">
           {{$ctrl.message.author.firstName}} {{$ctrl.message.author.lastName}}
         </h4>
-        {{$ctrl.message.text}} </br>
-        <a class="pull-right" ng-click="$ctrl.get()">Comments</a>
+        {{ $ctrl.message.createdAt | date:'medium' }}<br> {{$ctrl.message.text}} </br>
+        <a class="pull-right" ng-click="$ctrl.showHideComments();$ctrl.get();">
+          Comments
+          <span class="glyphicon glyphicon glyphicon-chevron-down" ng-show="$ctrl.showComments"></span>
+          <span class="glyphicon glyphicon glyphicon-chevron-up" ng-show="!$ctrl.showComments"></span>
+        </a>
 
         <!-- List of comments  -->
         <div class="row">
           <div class="col-xs-12">
             <div ng-repeat="comment in $ctrl.comments">
-              <comment-component comment="comment"></comment-component>
+              <comment-component ng-show="$ctrl.showComments" comment="comment"></comment-component>
             </div>
           </div>
         </div>
@@ -20,7 +24,7 @@
         <!-- Comment Input  -->
         <div class="row">
           <div class="col-xs-12">
-            <post-comment-component message="$ctrl.message"></post-comment-component>
+            <post-comment-component message="$ctrl.message" comments="$ctrl.comments"></post-comment-component>
           </div>
         </div>
       </div>

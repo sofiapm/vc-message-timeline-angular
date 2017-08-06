@@ -11,6 +11,7 @@ angular
     service.IsLogedIn = IsLogedIn
     service.CleanUser = CleanUser
     service.GetUserId = GetUserId
+    service.GetUser = GetUser
 
     return service
 
@@ -23,6 +24,8 @@ angular
       if (!localStorage.useremail || localStorage.useremail === "undefined") {
         localStorage.useremail = user.email
         localStorage.userid = user.id
+        localStorage.userFirstName = user.firstName
+        localStorage.userLastName = user.lastName
       }
     }
 
@@ -32,6 +35,19 @@ angular
 
     function GetUserId() {
       return localStorage.userid
+    }
+
+    /**
+    * Returns user id from localstorage
+    */
+
+    function GetUser() {
+      return {
+        id: localStorage.userid,
+        email: localStorage.useremail,
+        firstName: localStorage.userFirstName,
+        lastName: localStorage.userLastName
+      }
     }
 
     /**
