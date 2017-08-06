@@ -4,10 +4,11 @@
 
 angular
   .module('AppModule')
-  .factory('AuthenticationService', [ 'UserService', 'LocalStorageService', function (UserService, LocalStorageService) {
+  .factory('AuthenticationService', ['UserService', 'LocalStorageService', function (UserService, LocalStorageService) {
     const service = {}
 
     service.Login = Login
+    service.IsLogedIn = IsLogedIn
     service.Logout = Logout
 
     return service
@@ -19,7 +20,7 @@ angular
      * @param {function} callback
      */
 
-    function Login (email, password, callback) {
+    function Login(email, password, callback) {
 
       /**
        * Asks User with email from API
@@ -36,17 +37,22 @@ angular
             LocalStorageService.SaveUser(response.data[0])
             callback(response)
           } else {
-            callback({ success: false, message: 'Credentials not valid.'})
+            callback({ success: false, message: 'Credentials not valid.' })
           }
         })
 
 
-        // TODO: User should be considered logedin if exists and password is correct
+      // TODO: User should be considered logedin if exists and password is correct
     }
 
-    function Logout (callback) {
+    function Logout(callback) {
       // Removes User data from localstorage
       LocalStorageService.CleanUser()
       callback()
+    }
+
+    function IsLogedIn() {
+      // Removes User data from localstorage
+      return LocalStorageService.IsLogedIn();
     }
   }])

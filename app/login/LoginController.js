@@ -1,26 +1,16 @@
 angular
   .module('AppModule')
-  .controller('LoginController', ['$scope', '$location', 'AuthenticationService', 'AlertService', function ($scope, $location, AuthenticationService, AlertService) {
-
-    $scope.login = login
-    $scope.userCredentials = {
-      email: '',
-      password: ''
-    }
-
-    function login() {
-      $scope.dataLoading = true
-      AuthenticationService.Login($scope.userCredentials.email, $scope.userCredentials.password, (response) => {
-        if (response.success) {
-
-          // user is redirected to timeline
-          $location.path('/timeline')
-        } else {
-
-          // adds error message on alert array
-          AlertService.add("error", response.message);
-        }
-        $scope.dataLoading = false
-      })
-    };
+  .controller('LoginController', ['$scope', function ($scope) {
+    $scope.users = [
+      'malesuada.vel.venenatis@volutpat.edu',
+      'ut.mi@Curabituregestas.edu',
+      'metus.In@variusorci.ca',
+      'eleifend.egestas@In.co.uk',
+      'nibh.vulputate.mauris@sitametultricies.org',
+      'felis.ullamcorper.viverra@arcuvelquam.ca',
+      'lectus.quis@arcuMorbisit.com',
+      'vel.arcu.eu@MorbimetusVivamus.net',
+      'fermentum.arcu@elit.edu',
+      'risus.Morbi.metus@metusAliquam.co.uk'
+    ]
   }])
