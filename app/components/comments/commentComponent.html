@@ -1,0 +1,12 @@
+<div class="light-separator"></div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="comment">
+      <h5 class="">
+        {{$ctrl.comment.author.firstName}} {{$ctrl.comment.author.lastName}}
+      </h5>
+      {{ $ctrl.comment.createdAt | date:'medium' }}<br> {{ $ctrl.comment.text }}
+    </div>
+  </div>
+</div>

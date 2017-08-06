@@ -3,25 +3,25 @@
  */
 angular
   .module('AppModule')
-  .factory('UserService', ['$http', function ($http) {
+  .factory('MessageService', ['$http', function ($http) {
     const service = {}
 
-    service.GetAll = GetAll
+    service.GetPaginated = GetPaginated
     service.GetById = GetById
-    service.GetByEmail = GetByEmail
+    service.Create = Create
 
     return service
 
-    function GetAll () {
-      return $http.get('/api/user').then(handleSuccess, handleError)
+    function GetPaginated () {
+      return $http.get('/api/timeline/messages').then(handleSuccess, handleError)
     }
 
     function GetById (id) {
-      return $http.get(`/api/user/${id}`).then(handleSuccess, handleError)
+      return $http.get(`/api/message/${id}`).then(handleSuccess, handleError)
     }
 
-    function GetByEmail (email) {
-      return $http.get(`/api/user?where={"email":"${email}"}`).then(handleSuccess, handleError)
+    function Create(message) {
+        return $http.post('/api/message', message).then(handleSuccess, handleError);
     }
 
     // private functions

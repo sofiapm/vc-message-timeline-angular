@@ -1,25 +1,36 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+body {
+  padding-top: 70px;
 }
 
-.menu:before {
-  content: "[";
+.post-message {
+    height: 100px;
+    width: 100%;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin: 10px auto 10px auto;
+    padding: 10px;
 }
 
-.menu:after {
-  content: "]";
+.dark-separator {
+    height: 2px;
+    background-color: gray;
+    margin: 20px 0 20px 0;
 }
 
-.menu > li {
-  display: inline;
+.light-separator {
+    height: 1px;
+    background-color: lightgray;
+    margin: 20px 0 20px 0;
 }
 
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+.separator {
+    height: 1px;
+    background-color: gray;
+    margin: 5px 0 20px 0;
+}
+
+.comment {
+  text-align: right;
 }
