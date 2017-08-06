@@ -1,6 +1,10 @@
 # VC Message Timeline - Angular
 
-Simple frontend in Angularjs and Bootstrap for `VC Message Timeline` sails.js API.
+Simple frontend in Angularjs and Bootstrap for `VC Message Timeline` sails.js API, which allows users to create a message timeline where they post and reply to messages.
+
+Frontend was developed using AngularJS 1.6 and Bootstrap 3.3
+
+Backend can be found [here](https://github.com/sofiapm/vc-message-timeline/tree/release/v0.1.0)
 
 ## Login Information
 
@@ -25,3 +29,5 @@ Run app locally.
 ``` js
 $ npm start
 ```
+
+This is only the SPA, server can be found [here](https://github.com/sofiapm/vc-message-timeline/tree/release/v0.1.0)
