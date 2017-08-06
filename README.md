@@ -1,3 +1,7 @@
+# VC Message Timeline - Angular
+
+Simple frontend in Angularjs and Bootstrap for `VC Message Timeline` sails.js API.
+
 # Login Information
 
 Login is not verifying password.
