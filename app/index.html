@@ -22,14 +22,24 @@
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-    <div class="col-sm-12">
-        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-danger'" close="closeAlert($alert)">{{alert.msg}}</div>
-    </div>
-    <div class="container">
-        <div class="col-sm-8 col-sm-offset-2">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="nav-container">
+
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-danger'" close="closeAlert($alert)">{{alert.msg}}</div>
+            </div>
+        <div>
+
+        <div>
             <div ng-view class="ng-scope"></div>
         </div>
     </div>
+
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -54,6 +64,8 @@
   <script src="services/AuthenticationService.js"></script>
   <script src="services/LocalStorageService.js"></script>
   <script src="services/UserService.js"></script>
+  <script src="services/MessageService.js"></script>
+  <script src="services/CommentService.js"></script>
   <script src="login/LoginController.js"></script>
   <script src="timeline/TimelineController.js"></script>
 </body>

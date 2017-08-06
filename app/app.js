@@ -4,16 +4,14 @@ angular
   // intercepts http requests
   // if request url has `api` string, then changes base url to server url
   .factory('routeInterceptor', function () {
-       var routeInterceptor = {
-        request: function(config) {
-            if(config.url.indexOf('/api') === 0){
-                config.url = vcMessagesConfig.api.base_url+config.url
+       return {
+            request: function(config) {
+                if(config.url.indexOf('/api') === 0){
+                    config.url = vcMessagesConfig.api.base_url+config.url
+                }
+                return config;
             }
-            return config;
         }
-    };
-
-    return routeInterceptor
   })
   // routing configuration
   .config([ '$routeProvider', '$httpProvider', '$locationProvider', function ($routeProvider, $httpProvider, $locationProvider) {

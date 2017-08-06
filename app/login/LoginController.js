@@ -1,6 +1,6 @@
 angular
   .module('AppModule')
-  .controller('LoginController', [ '$scope', '$location', 'AuthenticationService', 'AlertService', function ($scope, $location, AuthenticationService, AlertService) {
+  .controller('LoginController', ['$scope', '$location', 'AuthenticationService', 'AlertService', function ($scope, $location, AuthenticationService, AlertService) {
 
     $scope.login = login
     $scope.userCredentials = {
@@ -8,7 +8,7 @@ angular
       password: ''
     }
 
-    function login () {
+    function login() {
       $scope.dataLoading = true
       AuthenticationService.Login($scope.userCredentials.email, $scope.userCredentials.password, (response) => {
         if (response.success) {

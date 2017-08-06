@@ -10,6 +10,7 @@ angular
     service.SaveUser = SaveUser
     service.IsLogedIn = IsLogedIn
     service.CleanUser = CleanUser
+    service.GetUserId = GetUserId
 
     return service
 
@@ -18,7 +19,7 @@ angular
      * @param {object} user - object user returned by API
      */
 
-    function SaveUser (user) {
+    function SaveUser(user) {
       if (!localStorage.useremail || localStorage.useremail === "undefined") {
         localStorage.useremail = user.email
         localStorage.userid = user.id
@@ -29,7 +30,7 @@ angular
      * Returns user id from localstorage
      */
 
-    function GetUserId () {
+    function GetUserId() {
       return localStorage.userid
     }
 
@@ -38,7 +39,7 @@ angular
      * User is loged in if localstorage has `useremail` and `userid`
      */
 
-    function IsLogedIn () {
+    function IsLogedIn() {
       return localStorage.useremail && localStorage.useremail !== "undefined" && localStorage.userid && localStorage.userid !== "undefined"
     }
 
@@ -46,7 +47,7 @@ angular
      * Removes User data from localstorage
      */
 
-    function CleanUser () {
+    function CleanUser() {
       localStorage.useremail = undefined
       localStorage.userid = undefined
     }

@@ -1,8 +1,8 @@
 angular.module('AppModule')
        .factory('AlertService', ['$rootScope', function($rootScope) {
-          var alertService;
           $rootScope.alerts = [];
-          return alertService = {
+
+          const alertService = {
             add: function(type, msg) {
               return $rootScope.alerts.push({
                 type: type,
@@ -22,4 +22,5 @@ angular.module('AppModule')
               $rootScope.alerts = [];
             }
           };
+          return alertService;
         }]);
