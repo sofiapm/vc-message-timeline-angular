@@ -6,7 +6,9 @@
       <h5 class="">
         {{$ctrl.comment.author.firstName}} {{$ctrl.comment.author.lastName}}
       </h5>
-      {{ $ctrl.comment.createdAt | date:'medium' }}<br> {{ $ctrl.comment.text }}
+      <p>{{ $ctrl.comment.createdAt | date:'medium' }}</p>
+      </br>
+      {{ $ctrl.comment.text }}
     </div>
   </div>
 </div>

@@ -5,7 +5,8 @@
         <h4 class="media-heading">
           {{$ctrl.message.author.firstName}} {{$ctrl.message.author.lastName}}
         </h4>
-        {{ $ctrl.message.createdAt | date:'medium' }}<br> {{$ctrl.message.text}} </br>
+        <p>{{ $ctrl.message.createdAt | date:'medium' }}</p>
+        </br> {{$ctrl.message.text}} </br>
         <a class="pull-right" ng-click="$ctrl.showHideComments();$ctrl.get();">
           Comments
           <span class="glyphicon glyphicon glyphicon-chevron-down" ng-show="$ctrl.showComments"></span>
