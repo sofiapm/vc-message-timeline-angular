@@ -4,6 +4,12 @@ body {
   padding-top: 70px;
 }
 
+.navbar-button {
+    margin-right: auto !important;
+}
+
+/* Messages and Comments */
+
 .post-message {
     height: 100px;
     width: 100%;
