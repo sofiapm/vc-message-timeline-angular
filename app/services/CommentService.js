@@ -12,25 +12,25 @@ angular
 
     return service
 
-    function GetPaginated () {
-      return $http.get('/api/timeline/comments').then(handleSuccess, handleError)
+    function GetPaginated(messageId) {
+      return $http.get(`/api/timeline/comments?message=${messageId}`).then(handleSuccess, handleError)
     }
 
-    function GetById (id) {
+    function GetById(id) {
       return $http.get(`/api/comment/${id}`).then(handleSuccess, handleError)
     }
 
     function Create(comment) {
-        return $http.post('/api/comment', comment).then(handleSuccess, handleError);
+      return $http.post('/api/comment', comment).then(handleSuccess, handleError);
     }
 
     // private functions
 
-    function handleSuccess (res) {
+    function handleSuccess(res) {
       return { success: true, data: res.data }
     }
 
-    function handleError (error) {
+    function handleError(error) {
       return function () {
         return { success: false, comment: error }
       }

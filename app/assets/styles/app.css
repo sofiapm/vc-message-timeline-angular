@@ -3,3 +3,34 @@
 body {
   padding-top: 70px;
 }
+
+.post-message {
+    height: 100px;
+    width: 100%;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+}
+
+.dark-separator {
+    height: 2px;
+    background-color: gray;
+    margin: 20px 0 20px 0;
+}
+
+.light-separator {
+    height: 1px;
+    background-color: lightgray;
+    margin: 20px 0 20px 0;
+}
+
+.separator {
+    height: 1px;
+    background-color: gray;
+    margin: 5px 0 20px 0;
+}
+
+.comment {
+  text-align: right;
+}

@@ -1,13 +1,19 @@
 angular
   .module('AppModule')
-  .controller('TimelineController', ['$scope', 'AlertService', 'MessageService', 'CommentService', 'LocalStorageService',
-    function ($scope, AlertService, MessageService, CommentService, LocalStorageService) {
+  .controller('TimelineController', ['$scope', 'AlertService', 'MessageService', 'LocalStorageService',
+    function ($scope, AlertService, MessageService, LocalStorageService) {
 
       $scope.messagesPaginated = messagesPaginated
       $scope.postMessage = postMessage
       $scope.messages = []
       $scope.message = ''
       $scope.messagesPaginated()
+
+      /**
+       * Messages
+       */
+
+      // Get list of messages
 
       function messagesPaginated() {
         MessageService.GetPaginated()
@@ -18,10 +24,13 @@ angular
           })
       };
 
+      // Post new message
+
       function postMessage() {
         $scope.postingMessage = true
         const message = {
           text: $scope.message,
+          // Gets current user id
           author: LocalStorageService.GetUserId()
         }
 
@@ -31,10 +40,9 @@ angular
               $scope.message = ''
             } else {
               // adds error message on alert array
-              AlertService.add("error", response.message);
+              AlertService.add("error", response.message || 'Error posting message.');
             }
             $scope.postingMessage = false
           })
       };
-
     }])

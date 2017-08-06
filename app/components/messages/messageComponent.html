@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+          {{$ctrl.message.author.firstName}} {{$ctrl.message.author.lastName}}
+        </h4>
+        {{$ctrl.message.text}} </br>
+        <a class="pull-right" ng-click="$ctrl.get()">Comments</a>
+
+        <!-- List of comments  -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div ng-repeat="comment in $ctrl.comments">
+              <comment-component comment="comment"></comment-component>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comment Input  -->
+        <div class="row">
+          <div class="col-xs-12">
+            <post-comment-component message="$ctrl.message"></post-comment-component>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="separator"></div>
